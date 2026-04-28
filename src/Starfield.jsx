@@ -49,7 +49,7 @@ function getPoints({ numStars = 500 } = {}) {
   });
   const points = new THREE.Points(geo, mat);
   function update(t) {
-      points.rotation.y -= 0.0002;
+      points.rotation.y -= 0.00003;
       let col;
       const colors = [];
       for (let i = 0; i < numStars; i += 1) {
@@ -68,9 +68,15 @@ function getPoints({ numStars = 500 } = {}) {
 
 function Starfield () {
   const ref = React.useRef();
-  const points = getPoints({ numStars: 3000 });
-  useFrame((state) => {
-    let { clock } = state;
+  const points = React.useMemo(() => getPoints({ numStars: 3000 }), []);
+
+  useFrame((state, delta) => {
+    if (!ref.current) {
+      return;
+    }
+
+    const { clock } = state;
+    ref.current.rotation.y -= delta * 0.002;
     ref.current.userData.update(clock.elapsedTime);
   });
   return <primitive object={points} ref={ref}/>
