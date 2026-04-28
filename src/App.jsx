@@ -10,36 +10,36 @@ import useScrollProgress from "./hooks/useScrollProgress";
 const sunDirection = new THREE.Vector3(-2, 0.5, 1.5);
 const sectionCopy = [
   {
-    eyebrow: "Orbital overview",
-    title: "Uma Terra 3D fixa no fundo, reagindo ao ritmo da leitura.",
+    eyebrow: "Lorem ipsum",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     body:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",
+      "Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",
   },
   {
-    eyebrow: "Scroll parallax",
-    title: "Cada seção empurra a cena com rotação extra e micro deslocamento.",
+    eyebrow: "Lorem ipsum",
+    title: "Praesent mauris fusce nec tellus sed augue semper porta.",
     body:
-      "Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.",
+      "Mauris massa. Vestibulum lacinia arcu eget nulla.",
   },
   {
-    eyebrow: "Depth layers",
-    title: "O HTML passa por cima enquanto o globo mantém presença de fundo.",
+    eyebrow: "Lorem ipsum",
+    title: "Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
     body:
-      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.",
+      "Per inceptos himenaeos. Curabitur sodales ligula in libero.",
   },
   {
-    eyebrow: "Responsive landing",
-    title: "Uma base simples para evoluir o conteúdo sem tocar na cena 3D.",
+    eyebrow: "Lorem ipsum",
+    title: "Sed dignissim lacinia nunc. Curabitur tortor pellentesque nibh.",
     body:
-      "Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.",
+      "Aenean quam. In scelerisque sem at dolor.",
   },
 ];
 
 const navItems = [
-  { label: "Home", href: "#top" },
-  { label: "Terra", href: "#earth-story" },
-  { label: "Camadas", href: "#layers" },
-  { label: "Contato", href: "#contact" },
+  { label: "Lorem", href: "#top" },
+  { label: "Ipsum", href: "#earth-story" },
+  { label: "Dolor", href: "#layers" },
+  { label: "Sit", href: "#contact" },
 ];
 
 function Earth({ scrollProgress }) {
@@ -111,15 +111,15 @@ function App() {
   return (
     <div className="page-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Earth parallax home">
+        <a className="brand" href="#top" aria-label="Lorem ipsum home">
           <span className="brand-mark" />
           <span className="brand-text">
-            Earth
-            <strong>Parallax</strong>
+            Lorem
+            <strong>Ipsum</strong>
           </span>
         </a>
 
-        <nav className="topbar-nav" aria-label="Primary">
+        <nav className="topbar-nav" aria-label="Lorem ipsum navigation">
           {navItems.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
@@ -142,14 +142,12 @@ function App() {
       <main className="content-stack">
         <section className="hero-panel" id="top">
           <div>
-            <p className="eyebrow">React Three Fiber parallax</p>
-            <h1>
-              Lorem ipsum.
-            </h1>
+            <p className="eyebrow">Lorem ipsum</p>
+            <h1>Lorem ipsum dolor sit amet.</h1>
             <p className="hero-copy">
-              A cena 3D existente continua intacta. O que muda é o contexto ao
-              redor: o HTML desliza por cima enquanto a Terra ganha rotação e
-              movimento de câmera conforme você desce a página.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+              nec, ultricies sed, dolor.
             </p>
           </div>
         </section>
