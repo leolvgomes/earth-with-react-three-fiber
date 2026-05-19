@@ -1,9 +1,11 @@
 import * as THREE from "three";
-import React from "react";
+import React, { Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import Starfield from "./Starfield";
 import EarthMaterial from "./EarthMaterial";
 import AtmosphereMesh from "./AtmosphereMesh";
+import Moon from "./Moon";
+import Astronaut from "./Astronaut";
 import ScrollSection from "./components/ScrollSection";
 import useScrollProgress from "./hooks/useScrollProgress";
 
@@ -133,7 +135,11 @@ function App() {
         camera={{ position: [0, 0.1, 4] }}
         gl={{ toneMapping: THREE.NoToneMapping }}
       >
-        <Earth scrollProgress={scrollProgress} />
+        <Suspense fallback={null}>
+          <Earth scrollProgress={scrollProgress} />
+          <Moon scrollProgress={scrollProgress} />
+          <Astronaut scrollProgress={scrollProgress} />
+        </Suspense>
         <hemisphereLight args={[0xffffff, 0x000000, 3.0]} />
         <directionalLight position={[x, y, z]} />
         <Starfield />
