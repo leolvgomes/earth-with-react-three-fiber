@@ -2,7 +2,7 @@ import * as THREE from "three";
 import React from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 
-function Moon({ scrollProgress }) {
+function Moon({ scrollProgress = 0, staticView = false }) {
   const groupRef = React.useRef();
   const meshRef = React.useRef();
   const moonMap = useLoader(THREE.TextureLoader, "/textures/moon-4k.jpg");
@@ -13,6 +13,30 @@ function Moon({ scrollProgress }) {
 
   useFrame((state) => {
     if (!groupRef.current || !meshRef.current) {
+      return;
+    }
+
+    if (staticView) {
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.12;
+      groupRef.current.position.x = THREE.MathUtils.lerp(
+        groupRef.current.position.x,
+        0,
+        0.08,
+      );
+      groupRef.current.position.y = THREE.MathUtils.lerp(
+        groupRef.current.position.y,
+        0,
+        0.08,
+      );
+      groupRef.current.position.z = THREE.MathUtils.lerp(
+        groupRef.current.position.z,
+        -0.4,
+        0.08,
+      );
+      groupRef.current.scale.setScalar(
+        THREE.MathUtils.lerp(groupRef.current.scale.x, 0.58, 0.1),
+      );
+      groupRef.current.visible = true;
       return;
     }
 
@@ -52,7 +76,11 @@ function Moon({ scrollProgress }) {
   });
 
   return (
-    <group ref={groupRef}>
+    <group
+      ref={groupRef}
+      position={staticView ? [0, 0, -0.4] : undefined}
+      scale={staticView ? 0.58 : undefined}
+    >
       <mesh ref={meshRef}>
         <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial map={moonMap} roughness={1} metalness={0} />

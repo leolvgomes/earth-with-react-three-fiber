@@ -110,7 +110,20 @@ body {
   transform: translateY(-1px);
 }
 
+.topbar-nav a.is-active {
+  color: #ffffff;
+  border-color: rgba(125, 213, 255, 0.44);
+  background: rgba(125, 213, 255, 0.1);
+}
+
 .earth-canvas {
+  position: fixed !important;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.scene-canvas {
   position: fixed !important;
   inset: 0;
   z-index: 0;
@@ -206,6 +219,49 @@ body {
   text-align: right;
 }
 
+.moon-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  align-items: end;
+  justify-items: start;
+  padding: 7vw;
+  padding-top: clamp(7rem, 12vw, 10rem);
+}
+
+.moon-panel {
+  width: min(100%, 34rem);
+  padding: 2rem;
+  border: 1px solid rgba(180, 210, 255, 0.18);
+  border-radius: 1.75rem;
+  background: linear-gradient(180deg, rgba(8, 14, 24, 0.68), rgba(8, 14, 24, 0.34));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.moon-panel h1 {
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.9rem, 8vw, 5.8rem);
+}
+
+.moon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.35rem;
+  padding: 0.82rem 1.15rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #08111e;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #8dc7ff, #7ef7d0);
+  box-shadow: 0 16px 34px rgba(92, 198, 255, 0.22);
+}
+
 @media (max-width: 720px) {
   .topbar {
     top: 0.6rem;
@@ -256,6 +312,19 @@ body {
     padding: 1.5rem;
     border-radius: 1.35rem;
     transform: translateY(18px);
+  }
+
+  .moon-stage {
+    min-height: 100vh;
+    align-items: end;
+    justify-items: stretch;
+    padding: 7.8rem 1rem 1.5rem;
+  }
+
+  .moon-panel {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1.35rem;
   }
 
   .hero-panel h1 {
